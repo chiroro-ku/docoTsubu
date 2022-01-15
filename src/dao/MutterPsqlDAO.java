@@ -11,16 +11,6 @@ import java.util.List;
 import model.Mutter;
 
 public class MutterPsqlDAO {
-//	// データベース接続に使用する情報
-//	private final String JDBC_URL = "jdbc:postgresql://localhost:5432/docotsubu";
-//	private final String DB_USER = "kobayashichihiro";
-//	private final String DB_PASS = "";
-
-//	// データベース接続に使用する情報
-//	private final String JDBC_URL = "postgres://vgcltkvzrbsbdc:fac5819a67cdda874452b8272f1b2ca47a9da1cb6fb01e49e89be3eb8880e50e@ec2-3-209-234-80.compute-1.amazonaws.com:5432/deilk4eg1rn073";
-//	private final String DB_USER = "vgcltkvzrbsbdc";
-//	private final String DB_PASS = "";
-
 	// データベース接続に使用する情報
 	private final String JDBC_URL = System.getenv("JDBC_DATABASE_URL");
 	private final String DB_USER = System.getenv("JDBC_DATABASE_USERNAME​");
@@ -91,14 +81,4 @@ public class MutterPsqlDAO {
 
 		return true;
 	}
-
-//	private Connection getConnection() throws URISyntaxException, SQLException {
-//		URI dbUri = new URI(System.getenv("DATABASE_URL"));
-//
-//		String username = dbUri.getUserInfo().split(":")[0];
-//		String password = dbUri.getUserInfo().split(":")[1];
-//		String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + dbUri.getPath();
-//
-//		return DriverManager.getConnection(dbUrl, username, password);
-//	}
 }

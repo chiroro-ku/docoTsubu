@@ -13,8 +13,6 @@
 		<c:out value="${loginUser.name}" />
 		さん、ログイン中 <a href="/Logout">ログアウト</a>
 	</p>
-	<!-- <p><a href="/docoTsubu/Main">更新</a></p> -->
-	<!-- <form action="/docoTsubu/Main" method="post"> -->
 	<p>
 		<a href="/Main">更新</a>
 	</p>
