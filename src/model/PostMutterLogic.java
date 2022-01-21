@@ -3,7 +3,7 @@
  */
 package model;
 
-import dao.MutterPsqlDAO;
+import dao.MutterDAO;
 
 /**
  * @author kobayashichihiro
@@ -11,7 +11,7 @@ import dao.MutterPsqlDAO;
  */
 public class PostMutterLogic {
 	public void execute(Mutter mutter) {
-		MutterPsqlDAO dao = new MutterPsqlDAO();
+		MutterDAO dao = new MutterDAO();
 		dao.create(mutter);
 	}
 }

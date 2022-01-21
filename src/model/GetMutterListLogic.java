@@ -2,11 +2,11 @@ package model;
 
 import java.util.List;
 
-import dao.MutterPsqlDAO;
+import dao.MutterDAO;
 
 public class GetMutterListLogic {
 	public List<Mutter> execute() {
-		MutterPsqlDAO dao = new MutterPsqlDAO();
+		MutterDAO dao = new MutterDAO();
 		List<Mutter> mutterList = dao.findALL();
 		return mutterList;
 	}

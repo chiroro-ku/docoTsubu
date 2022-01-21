@@ -10,20 +10,13 @@ import java.util.List;
 
 import model.Mutter;
 
-public class MutterPsqlDAO {
+public class _MutterDAO {
 	// データベース接続に使用する情報
-	private final String JDBC_URL = System.getenv("JDBC_DATABASE_URL");
-	private final String DB_USER = System.getenv("JDBC_DATABASE_USERNAME​");
-	private final String DB_PASS = System.getenv("JDBC_DATABASE_PASSWORD");
+	private final String JDBC_URL = "jdbc:h2:tcp://localhost/~/docoTsubu";
+	private final String DB_USER = "sa";
+	private final String DB_PASS = "";
 
 	public List<Mutter> findALL() {
-
-		try {
-			Class.forName("org.postgresql.Driver");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
 		List<Mutter> mutterList = new ArrayList<Mutter>();
 
 		// データベース接続
@@ -52,17 +45,10 @@ public class MutterPsqlDAO {
 	}
 
 	public boolean create(Mutter mutter) {
-
-		try {
-			Class.forName("org.postgresql.Driver");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
 		// データベース接続
 		try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
 			// INSERT文の準備(idは自動連番なので指定しなくてよい)
-			String sql = "INSERT INTO MUTTER (NAME, TEXT) VALUES (?,?)";
+			String sql = "INSERT INTO MUTTER(NAME, TEXT) VALUES(?,?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// INSERT文中の「?」に使用する値を設定しSQLを完成
