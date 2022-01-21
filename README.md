@@ -41,7 +41,6 @@ private final String DB_PASS = System.getenv("JDBC_DATABASE_PASSWORD");
 ```
 DBでは、以下のようなカラム情報を持った、MUTTERテーブルを作成しました。     
 ```
-docotsubu-app::DATABASE=> \d MUTTER
                                     Table "public.mutter"
  Column |          Type          | Collation | Nullable |              Default               
 --------+------------------------+-----------+----------+------------------------------------
