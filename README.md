@@ -2,7 +2,7 @@
 URL：https://docotsubu-app.herokuapp.com/  
 パスワード：1234
 
-### 参考資料
+## 参考資料
 https://sukkiri.jp/books/sukkiri_servlet2  
 この書籍に掲載されているアプリケーションを参考にしました。
 
@@ -22,23 +22,24 @@ IDE：eclipse
 ・デプロイの実践  
 
 ## デプロイ方法
+参考書にはApache Tomcatを利用して、ローカル上で動かすまでの解説しかありませんでした。  
+そこで、Herokuのサービスを使い、デプロイする事を試みました。  
+デプロイの方法は以下のHeroku公式サイトを参考にしました。  
 https://devcenter.heroku.com/ja/articles/war-deployment  
-上記のHeroku公式サイトを参考にしました。  
-warファイルを、Heroku CLIを利用して、デプロイしました。  
-そのwarファイルは、eclipseで動的Webプロジェクトをエクスポートしました。  
+eclipseで作成した動的Webプロジェクトを、warファイルにエクスポートし、Heroku CLIを利用して、デプロイしました。  
 
 ## DBの設定
 参考書では、H2 Databaseを利用していましたが、  
-デプロイするにあたり、Herokuサーバーに合わせ、PostgreSQLに変更することしました。  
+デプロイするにあたり、Herokuサーバーに合わせ、PostgreSQLに変更することにしました。  
 アドオン方法や接続は、下記のサイトを参考にしました。  
 https://devcenter.heroku.com/ja/articles/heroku-postgresql#connecting-in-java  
 DAOクラスでは、下記のようにして、JDBCのURL、ユーザーとパスワードを取得しています。  
-```java
+```Java
 private final String JDBC_URL = System.getenv("JDBC_DATABASE_URL");  
 private final String DB_USER = System.getenv("JDBC_DATABASE_USERNAME​");  
 private final String DB_PASS = System.getenv("JDBC_DATABASE_PASSWORD");
 ```
-以下のようなカラム情報を持った、MUTTERテーブルを作成しました。     
+DBでは、以下のようなカラム情報を持った、MUTTERテーブルを作成しました。     
 ```
 docotsubu-app::DATABASE=> \d MUTTER
                                     Table "public.mutter"
@@ -50,8 +51,8 @@ docotsubu-app::DATABASE=> \d MUTTER
 Indexes:
     "mutter_pkey" PRIMARY KEY, btree (id)
 ```
-MUTTERテーブルは以下のようにして作成した。
-```
+MUTTERテーブルの作成は以下のSQLで行いました。
+```SQL
 CREATE TABLE MUTTER(
   ID SERIAL,
   NAME VARCHAR(100) NOT NULL,
@@ -62,7 +63,7 @@ CREATE TABLE MUTTER(
 つぶやきのデータベースはありますが、ユーザーを管理しているデータベースは無いです。  
 現状、ログイン機能は形だけのモノになっています。  
 
-## 改善予定
-・ユーザーデータベースの作成、ログイン機能の完成  
+## 改善点
+・ユーザーのデータベースの作成とログイン機能の完成  
 ・つぶやいた時間の表示  
 ・ユーザーのログインアウト時間の表示  
