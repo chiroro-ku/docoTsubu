@@ -1,6 +1,6 @@
 # docoTsubu
-URL：~~https://docotsubu-app.herokuapp.com/~~
-https://docotsubu-c185f46c0211.herokuapp.com/
+URL：~~https://docotsubu-app.herokuapp.com/~~  
+URL：https://docotsubu-c185f46c0211.herokuapp.com/  
 パスワード：1234
 
 ## 参考資料
